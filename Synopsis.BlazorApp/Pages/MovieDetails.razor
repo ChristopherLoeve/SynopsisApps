@@ -1,0 +1,39 @@
+﻿@page "/MovieDetails/{Id:int}"
+
+@inherits MovieDetailsBase
+
+@if (Movie != null)
+{
+    <div class="container m-0 p-0 w-100">
+        <div class="row m-0 p-0 w-100">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-6">
+                <img class="w-100" src="@Movie.ImageUrl" alt="Movie Poster" />
+            </div>
+            <div class="col-lg-5">
+                <h4>Title: @Movie.Title</h4>
+                <h4>Plot: @Movie.Plot</h4>
+                <h4>Category: @Movie.Category.Name</h4>
+                <h4>Release Year: @Movie.ReleaseYear</h4>
+                <h4>Runtime: @Movie.RuntimeMinutes minutes</h4>
+                <h4>IMDB Rating: @Movie.Rating</h4>
+                <h4>Main Cast: </h4>
+                <ul>
+                    @foreach (var name in @Movie.CastNames)
+                    {
+                        <li>
+                            <h4>
+                                @name
+                            </h4>
+                        </li>
+                    }
+                </ul>
+
+                <br />
+                <button href="/">
+                    Back
+                </button>
+            </div>
+        </div>
+    </div>
+}

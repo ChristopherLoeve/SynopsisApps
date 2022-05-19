@@ -1,0 +1,36 @@
+﻿@page
+@model Synopsis.Razor.Pages.MovieDetailsModel
+@{
+    <div class="container m-0 p-0 w-100">
+        <div class="row m-0 p-0 w-100">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-6">
+                <img class="w-100" src="@Model.Movie.ImageUrl" alt="Movie Poster" />
+            </div>
+            <div class="col-lg-5">
+                <h4>Title: @Model.Movie.Title</h4>
+                <h4>Plot: @Model.Movie.Plot</h4>
+                <h4>Category: @Model.Movie.Category.Name</h4>
+                <h4>Release Year: @Model.Movie.ReleaseYear</h4>
+                <h4>Runtime: @Model.Movie.RuntimeMinutes minutes</h4>
+                <h4>IMDB Rating: @Model.Movie.Rating</h4>
+                <h4>Main Cast: </h4>
+                <ul>
+                    @foreach (var name in @Model.Movie.CastNames)
+                    {
+                        <li>
+                            <h4>
+                                @name
+                            </h4>
+                        </li>
+                    }
+                </ul>
+
+                <br />
+                <button asp-page="/MovieList">
+                    Back
+                </button>
+            </div>
+        </div>
+    </div>
+}

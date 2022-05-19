@@ -1,0 +1,18 @@
+﻿@page
+@model Synopsis.Razor.Pages.MovieListModel
+
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <h1>Movies:</h1>
+        <ul>
+            @foreach (var movie in Model.Movies)
+            {
+                <li class="list">
+                    <a asp-page="MovieDetails" asp-route-id="@movie.Id"><h4>@movie.Title - @movie.ReleaseYear </h4></a>
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="col-1"></div>
+</div>
